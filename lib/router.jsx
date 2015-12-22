@@ -1,4 +1,8 @@
 FlowRouter.route('/', {
+	name: 'home',
+	subscriptions: function() {
+		this.register('movies', Meteor.subscribe('movies'))
+	},
 	action() {
 		ReactLayout.render(MainLayout, { content: <MovieList /> });
 	}
@@ -6,7 +10,10 @@ FlowRouter.route('/', {
 
 FlowRouter.route('/movie/:movieId', {
 	name: 'movie',
+	subscriptions: function(params) {
+		this.register('singleMovie', Meteor.subscribe("singleMovie", params.movieId))
+	},
 	action(params) {
-		console.log(params.movieId)
+		ReactLayout.render(MainLayout, { content: <MovieList /> });
 	}
 })
