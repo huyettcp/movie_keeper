@@ -12,12 +12,7 @@ AddMovie = React.createClass({
 
 		var title = ReactDOM.findDOMNode(this.refs.movieInput).value.trim();
 
-		Movies.insert({
-			title: title,
-			createdAt: new Date(),
-			owner: Meteor.userId(),
-			username: Meteor.user().username
-		});
+		Meteor.call("addMovie", title);
 
 		ReactDOM.findDOMNode(this.refs.movieInput).value = ""
 	},
