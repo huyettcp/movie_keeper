@@ -4,7 +4,7 @@ Movie = React.createClass({
 	},
 	render() {
 		return (
-			<a href={FlowHelpers.pathFor('movie', { movieId: this.props.movie._id})}><li>{this.props.movie._id}</li></a>
+			<a href={FlowHelpers.pathFor('movie', { movieId: this.props.movie._id})}><li>{this.props.movie.title}</li></a>
 
 
 		);

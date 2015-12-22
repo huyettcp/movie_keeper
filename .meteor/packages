@@ -22,3 +22,9 @@ kadira:flow-router
 accounts-ui
 accounts-password
 arillo:flow-router-helpers
+http
+underscore
+meteorhacks:npm
+
+
+npm-container
