@@ -14,6 +14,6 @@ FlowRouter.route('/movie/:movieId', {
 		this.register('singleMovie', Meteor.subscribe("singleMovie", params.movieId))
 	},
 	action(params) {
-		ReactLayout.render(MainLayout, { content: <MovieList /> });
+		ReactLayout.render(MainLayout, { content: <MoviePage /> });
 	}
 })
