@@ -4,7 +4,7 @@ Movie = React.createClass({
 	},
 	render() {
 		return (
-			<li>{this.props.movie.title}</li>
+			<a href=""><li>{this.props.movie.title}</li></a>
 		);
 	}
 })

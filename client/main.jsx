@@ -2,11 +2,10 @@ MainLayout = React.createClass({
 	render() {
 		return (
 			<div>
-				<Header />
+				<AddMovie />
 				<div className="container">
 					{this.props.content}
 				</div>
-				<Footer />
 			</div>
 		)
 	}

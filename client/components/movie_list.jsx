@@ -15,7 +15,7 @@ MovieList = React.createClass({
 
 	render() {
 		return (
-			<div className="movie_list">
+			<div className="movie-list">
 				<ul>
 					{this.renderMovies()}
 				</ul>
