@@ -2,27 +2,31 @@ MoviePage = React.createClass({
 	mixins: [ReactMeteorData],
 	
 	getMeteorData() {
-		console.log(Movies.find({}).count())
-		return {
-			movies: Movies.find({}).fetch(),
-			currentUser: Meteor.user()
+		var data = {}
+		var movieId = this.props.movieId
+		var handle = Meteor.subscribe('singleMovie', movieId);
+		if(handle.ready()) {
+			data.movie = Movies.findOne({_id: movieId})
 		}
+
+		console.log(data)
+		return data
 	},
 
+	getContent() {
+		return (
+			<div>
+				<h2>{this.data.movie.title}</h2>
+				<p>{this.data.movie.plot}</p>
+			</div>
+		);
+	},
 
 	render() {
 		return (
-			<ul>
-			{this.data.movies.map(function(movie) {
-				return ([
-					<li>{movie.title}</li>,
-					<li>{movie.plot}</li>,
-					<li>{movie.year}</li>
-				])
-			})}
-
-			</ul>
-
+			<div>
+			{this.data.movie? this.getContent() : <p>Loading...</p>}
+			</div>
 
 		);
 	}

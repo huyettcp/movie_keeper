@@ -4,9 +4,10 @@ Meteor.methods({
 			throw new Meteor.Error("not-authorized")
 		}
 
-		var cheerio = Meteor.npmRequire('cheerio')
+		var result = HTTP.get("http://www.omdbapi.com/?t="+title+"&y=&plot=short&r=json")
 
-		var result = Meteor.http.get("http://www.omdbapi.com/?t="+title+"&y=&plot=short&r=json")
+		if (result.data.Response==="True") {
+			console.log(result.data.Response)
 
 		var cleanTitle = result.data.Title
 		var year = result.data.Year
@@ -50,5 +51,7 @@ Meteor.methods({
 			owner: Meteor.userId(),
 			username: Meteor.user().username
 		});
+		}
+
 	}
 })
