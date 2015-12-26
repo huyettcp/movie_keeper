@@ -28,5 +28,4 @@ meteorhacks:npm
 
 
 npm-container
-react-template-helper
-poetic:react-material-ui
+materialize:materialize

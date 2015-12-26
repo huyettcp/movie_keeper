@@ -9,7 +9,9 @@ Meteor.methods({
 
 		var storedMovie = Movies.findOne({title: cleanTitle})
 
-		if (result.data.Response==="True" && storedMovie===undefined) {
+		var poster = result.data.Poster
+
+		if (result.data.Response==="True" && storedMovie===undefined && poster != "N/A") {
 
 
 
@@ -55,7 +57,7 @@ Meteor.methods({
 			creatorUsername: Meteor.user().username,
 			viewers: [Meteor.userId()]
 		});
-		} if (result.data.Response==="False") {
+		} if (result.data.Response==="False" || poster === "N/A") {
 			return {
 				notAMovie: true
 			}
