@@ -5,11 +5,14 @@ Meteor.methods({
 		}
 
 		var result = HTTP.get("http://www.omdbapi.com/?t="+title+"&y=&plot=short&r=json")
-
-		if (result.data.Response==="True") {
-			console.log(result.data.Response)
-
 		var cleanTitle = result.data.Title
+
+		var storedMovie = Movies.findOne({title: cleanTitle})
+
+		if (result.data.Response==="True" && storedMovie===undefined) {
+
+
+
 		var year = result.data.Year
 		var rated = result.data.Rated
 		var released = result.data.Released
@@ -48,9 +51,21 @@ Meteor.methods({
 			imdbVotes: imdbVotes,
 			imdbId: imdbId,
 			createdAt: new Date(),
-			owner: Meteor.userId(),
-			username: Meteor.user().username
+			creatorId: Meteor.userId(),
+			creatorUsername: Meteor.user().username,
+			viewers: [Meteor.userId()]
 		});
+		} if (result.data.Response==="False") {
+			return {
+				notAMovie: true
+			}
+		} else {
+			Movies.update(storedMovie._id, {
+				$addToSet: {
+					viewers: Meteor.userId()
+
+				}
+			})
 		}
 
 	}

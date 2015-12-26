@@ -12,7 +12,11 @@ AddMovie = React.createClass({
 
 		var title = ReactDOM.findDOMNode(this.refs.movieInput).value.trim();
 
-		Meteor.call("addMovie", title);
+		Meteor.call("addMovie", title, function(error, result) {
+			if (result.notAMovie) {
+				alert("Not a movie")
+			}
+		})
 
 		ReactDOM.findDOMNode(this.refs.movieInput).value = ""
 	},

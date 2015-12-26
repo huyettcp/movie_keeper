@@ -20,6 +20,7 @@ MoviePage = React.createClass({
 			<Card>
 				<h2>{this.data.movie.title}</h2>
 				<p>{this.data.movie.plot}</p>
+				<img src={this.data.movie.poster}></img>
 			</Card>
 		);
 	},
