@@ -3,7 +3,7 @@ MovieList = React.createClass({
 
 	getMeteorData() {
 		return {
-			movies: Movies.find({}, {sort: {title: 1}}).fetch(),
+			movies: Movies.find({}, {sort: {createdAt: -1}}).fetch(),
 			currentUser: Meteor.user()
 		}
 	},
@@ -16,7 +16,7 @@ MovieList = React.createClass({
 
 	render() {
 		return (
-	
+			
 			<div className="row">
 	
 					{this.renderMovies()}

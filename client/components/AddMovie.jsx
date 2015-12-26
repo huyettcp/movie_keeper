@@ -22,16 +22,20 @@ AddMovie = React.createClass({
 	},
 	render() {
 		return (
-			<div className="add-movie-form">
+			<div className="row">
+
 			{ this.data.currentUser ?
 				<form className="new-movie" onSubmit={this.handleSubmit} >
 					<input
+						className="col s6"
 						type="text"
 						ref="movieInput"
 						placeholder="Add a movie" />
+					<input type="submit" name="Add Movie"/>
 				</form> : ''
 			}
 			</div>
+  		
 		)
 	}	
 });

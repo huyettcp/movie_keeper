@@ -1,9 +1,11 @@
 Header = React.createClass({
 	render() {
 		return (
-			<div className="header">
-				<p>Header</p>
-			</div>
+			<nav>
+    			<div className="nav-wrapper">
+      				<a href="#" className="brand-logo">Logo</a>
+    			</div>
+  			</nav>
 		)
 	}
 })

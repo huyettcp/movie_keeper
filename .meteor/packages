@@ -29,3 +29,5 @@ meteorhacks:npm
 
 npm-container
 materialize:materialize
+useraccounts:materialize
+useraccounts:core
