@@ -1,6 +1,8 @@
+var { Card, CardTitle, CardActions, FlatButton, CardText } = mui
+
 MovieList = React.createClass({
 	mixins: [ReactMeteorData],
-	
+
 	getMeteorData() {
 		return {
 			movies: Movies.find({}, {sort: {title: 1}}).fetch(),
@@ -16,11 +18,15 @@ MovieList = React.createClass({
 
 	render() {
 		return (
+	
 			<div className="movie-list">
-				<ul>
+	
 					{this.renderMovies()}
-				</ul>
+
 			</div>
+		
+
+
 		)
 	}
 })

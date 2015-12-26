@@ -1,3 +1,6 @@
+var { Card, CardTitle, CardActions, FlatButton, CardText } = mui
+
+
 MoviePage = React.createClass({
 	mixins: [ReactMeteorData],
 	
@@ -9,16 +12,15 @@ MoviePage = React.createClass({
 			data.movie = Movies.findOne({_id: movieId})
 		}
 
-		console.log(data)
 		return data
 	},
 
 	getContent() {
 		return (
-			<div>
+			<Card>
 				<h2>{this.data.movie.title}</h2>
 				<p>{this.data.movie.plot}</p>
-			</div>
+			</Card>
 		);
 	},
 
