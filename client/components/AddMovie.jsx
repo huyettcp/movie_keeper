@@ -50,7 +50,27 @@ AddMovie = React.createClass({
 
 					<input type="submit" name="Add" className="btn waves-effect waves-light" placeholder="Add"/>
 					</div>	
-				</form> : ''
+				</form> :
+
+				    <div className="col s12">
+          <div className="card blue-grey darken-1">
+            <div className="card-content white-text">
+              <span className="card-title">Please login to begin saving movies to your collection! <br/>Login link is in the top right corner.</span>
+            </div>
+ 
+          </div>
+        </div>
+      // <div className="col s12">
+      //   <div className="card-panel teal">
+
+      //     <span className="white-text">Please login to begin saving movies to your collection! Login link is in the top right corner.
+      //     </span>
+      //   </div>
+      // </div>
+  
+
+
+
 			}
 			</div>
   		
