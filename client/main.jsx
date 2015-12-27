@@ -12,7 +12,6 @@ MainLayout = React.createClass({
 				<div className="container">
 				<div className="row">
 				</div>
-				<AddMovie />
 					{this.props.content}
 				</div>
 			</div>

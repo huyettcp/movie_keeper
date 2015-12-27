@@ -1,9 +1,3 @@
-
-	 $(document).ready(function() {
-    $('select').material_select();
-  });
-
-
 AddMovie = React.createClass({
 	mixins: [ReactMeteorData],
 

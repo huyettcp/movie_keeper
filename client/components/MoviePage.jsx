@@ -19,16 +19,14 @@ MoviePage = React.createClass({
 		return ([
 
 		<div className="row">
-			<div className="section col s3">
-				<img src={this.data.movie.poster}/>
-			</div>
-			<div className="section col s9">
+				<img className="col s12 m6 l4"src={this.data.movie.poster}/>
+			<div className="section col s12 m6 l8">
 				<h3>{this.data.movie.title}</h3>
 				<div className="divider"></div>
 				<p><b>Plot: </b>{this.data.movie.plot}</p>
 				<div className="divider"></div>
 			</div>
-			<div className="section col s5">
+			<div className="section col s6 m6 l4">
 				<ul>
 					<li><b>Director:</b> {this.data.movie.director}</li>
 					<li><b>Year Released:</b> {this.data.movie.year}</li>
@@ -41,7 +39,7 @@ MoviePage = React.createClass({
 				</ul>
 				<div className="divider"></div>
 			</div>
-			<div className="section col s4">
+			<div className="section col s6 m6 l4">
 				<ul>
 					<li><b>IMDB Rating:</b> {this.data.movie.imdbRating}</li>
 					<li><b>IMDB Votes:</b> {this.data.movie.imdbVotes}</li>

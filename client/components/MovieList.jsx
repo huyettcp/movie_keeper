@@ -14,11 +14,15 @@ MovieList = React.createClass({
 		})
 	},
 
+	renderAdd() {
+		return <AddMovie />
+	},
+
 	render() {
 		return (
-			
+
 			<div className="row">
-	
+					{this.renderAdd()}
 					{this.renderMovies()}
 
 			</div>
