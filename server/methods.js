@@ -4,7 +4,7 @@ Meteor.methods({
 			throw new Meteor.Error("not-authorized")
 		}
 
-		var result = HTTP.get("http://www.omdbapi.com/?t="+title+"&y=&plot=full&r=json")
+		var result = HTTP.get("http://www.omdbapi.com/?t="+title+"&y=&plot=short&r=json")
 		var cleanTitle = result.data.Title
 
 		var storedMovie = Movies.findOne({title: cleanTitle})

@@ -1,9 +1,21 @@
 
 Movie = React.createClass({
+
 	propTypes: {
 		movie: React.PropTypes.object.isRequired
 	},
-	render() {
+
+  reviewMovie() {
+    if (Meteor.user() != null) {
+      var viewerArray = this.props.movie.viewers
+      var viewer = Meteor.user()._id
+      if (_.contains(viewerArray, viewer) == false) {
+        return <a>Review</a>
+      }
+    }
+  },
+
+  render() {
 		return (
 		
 		<div className="col s6 m4 l3">
@@ -19,7 +31,7 @@ Movie = React.createClass({
             </div>
             <div className="card-action">
               <a href={FlowHelpers.pathFor('movie', { movieId: this.props.movie._id})}>More info</a>
-  
+              {this.reviewMovie()}
             </div>
           </div>
         </div>
