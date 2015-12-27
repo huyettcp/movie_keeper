@@ -1,5 +1,5 @@
 Meteor.methods({
-	addMovie(title) {
+	addMovie(title, rating) {
 		if (! Meteor.userId()) {
 			throw new Meteor.Error("not-authorized")
 		}
@@ -55,7 +55,9 @@ Meteor.methods({
 			createdAt: new Date(),
 			creatorId: Meteor.userId(),
 			creatorUsername: Meteor.user().username,
-			viewers: [Meteor.userId()]
+			aggregateRating: parseInt(rating),
+			viewers: [Meteor.userId()],
+			viewerCount: 1
 		});
 		} if (result.data.Response==="False" || poster === "N/A") {
 			return {
@@ -66,9 +68,15 @@ Meteor.methods({
 				$addToSet: {
 					viewers: Meteor.userId()
 
+				},
+				$inc: { 
+					viewerCount: 1,
+					aggregateRating: parseInt(rating)
+
 				}
 			})
 		}
 
-	}
+		}
+
 })

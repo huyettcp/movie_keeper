@@ -1,3 +1,9 @@
+
+	 $(document).ready(function() {
+    $('select').material_select();
+  });
+
+
 AddMovie = React.createClass({
 	mixins: [ReactMeteorData],
 
@@ -11,14 +17,16 @@ AddMovie = React.createClass({
 		event.preventDefault();
 
 		var title = ReactDOM.findDOMNode(this.refs.movieInput).value.trim();
-
-		Meteor.call("addMovie", title, function(error, result) {
+		var rating = ReactDOM.findDOMNode(this.refs.ratingInput).value.trim();
+		console.log(rating)
+		Meteor.call("addMovie", title, rating, function(error, result) {
 			if (result.notAMovie) {
 				alert("Not a movie")
 			}
 		})
 
 		ReactDOM.findDOMNode(this.refs.movieInput).value = ""
+		ReactDOM.findDOMNode(this.refs.ratingInput).value = ""
 	},
 	render() {
 		return (
@@ -27,11 +35,20 @@ AddMovie = React.createClass({
 			{ this.data.currentUser ?
 				<form className="new-movie" onSubmit={this.handleSubmit} >
 					<input
-						className="col s6"
+						className="col s12"
+						label="Title"
 						type="text"
 						ref="movieInput"
-						placeholder="Add a movie" />
-					<input type="submit" name="Add Movie"/>
+						placeholder="Enter movie title" />
+  					<input
+						className="col s12"
+						label="Title"
+						type="text"
+						ref="ratingInput"
+						placeholder="Rate movie (1-10)" />
+
+					<input type="submit" name="Add" className="btn waves-effect waves-light" placeholder="Add"/>
+
 				</form> : ''
 			}
 			</div>

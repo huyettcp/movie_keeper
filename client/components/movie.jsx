@@ -15,6 +15,7 @@ Movie = React.createClass({
             <div className="card-content">
               <p>Year Released: {this.props.movie.year}</p>
               <p>IMDB Rating: {this.props.movie.imdbRating}</p>
+              <p>Community Rating: {this.props.movie.aggregateRating/this.props.movie.viewerCount}</p>
             </div>
             <div className="card-action">
               <a href={FlowHelpers.pathFor('movie', { movieId: this.props.movie._id})}>More info</a>

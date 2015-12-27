@@ -3,7 +3,6 @@ Accounts.ui.config({
  });
 
 
-
 MainLayout = React.createClass({
 	render() {
 		return (
