@@ -11,7 +11,6 @@ MainLayout = React.createClass({
 
 				<div className="container">
 				<div className="row">
-				<AccountsUIWrapper />
 				</div>
 				<AddMovie />
 					{this.props.content}
