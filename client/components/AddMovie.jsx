@@ -30,7 +30,7 @@ AddMovie = React.createClass({
 			{ this.data.currentUser ? 
 				<form className="new-movie" onSubmit={this.handleSubmit} >
 
-  			 <div className="input-field col s3 m4 l6">
+  			 <div className="input-field col s3 m4 l7">
   			 	<label className="active" htmlFor="movie_title">Movie Title</label>
 					<input
 						id="movie_title"
@@ -38,7 +38,7 @@ AddMovie = React.createClass({
 						ref="movieInput"
 						placeholder="Enter movie title" />
 			</div>
-			<div className="input-field col s3 m4 l6">		
+			<div className="input-field col s3 m4 l7">		
 					<label className="active" htmlFor="rating_title">Rate Movie (1-10)</label>
   					<input
   						id="rating_title"

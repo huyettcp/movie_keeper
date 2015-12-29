@@ -4,6 +4,8 @@ Meteor.methods({
 			throw new Meteor.Error("not-authorized")
 		}
 
+		console.log(rating)
+
 		var result = HTTP.get("http://www.omdbapi.com/?t="+title+"&y=&plot=short&r=json")
 		var cleanTitle = result.data.Title
 
@@ -17,6 +19,8 @@ Meteor.methods({
 		}
 
 		var rating = parseInt(rating)
+
+		console.log(rating)
 
 		if (result.data.Response==="True" && storedMovie===undefined && rating >= 0 && rating <= 10) {
 
@@ -69,7 +73,7 @@ Meteor.methods({
 			return {
 				notAMovie: true
 			}
-		} if (rating < 0 || rating > 10) {
+		} if (rating < 0 || rating > 10 || isNaN(parseInt(rating)) === true) {
 			return {
 				notInRange: true
 			}
