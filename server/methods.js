@@ -11,7 +11,9 @@ Meteor.methods({
 
 		var poster = result.data.Poster
 
-		if (result.data.Response==="True" && storedMovie===undefined && poster != "N/A") {
+		var rating = parseInt(rating)
+
+		if (result.data.Response==="True" && storedMovie===undefined && poster != "N/A" && rating >= 0 && rating <= 10) {
 
 
 
@@ -55,13 +57,17 @@ Meteor.methods({
 			createdAt: new Date(),
 			creatorId: Meteor.userId(),
 			creatorUsername: Meteor.user().username,
-			aggregateRating: parseInt(rating),
+			aggregateRating: rating,
 			viewers: [Meteor.userId()],
 			viewerCount: 1
 		});
 		} if (result.data.Response==="False" || poster === "N/A") {
 			return {
 				notAMovie: true
+			}
+		} if (rating < 0 || rating > 10) {
+			return {
+				notInRange: true
 			}
 		} else {
 			Movies.update(storedMovie._id, {
@@ -80,17 +86,23 @@ Meteor.methods({
 		},
 	reviewMovie(movieId, rating) {
 		var storedMovie = Movies.findOne({_id: movieId})
-
+		var rating = parseInt(rating)
+		if (rating > 0 && rating < 10) {
 		Movies.update(storedMovie._id, {
 			$addToSet: {
 				viewers: Meteor.userId()
 			},
 			$inc: {
 				viewerCount: 1,
-				aggregateRating: parseInt(rating)
+				aggregateRating: rating
 
 			}
 		})
+	} else {
+		return {
+			notInRange: true
+		}
+	}
 
 	}
 

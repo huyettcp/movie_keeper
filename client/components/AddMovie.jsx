@@ -15,6 +15,8 @@ AddMovie = React.createClass({
 		Meteor.call("addMovie", title, rating, function(error, result) {
 			if (result.notAMovie) {
 				alert("Not a movie")
+			} if (result.notInRange) {
+				alert("Please enter a number between 1 and 10")
 			}
 		})
 
@@ -55,7 +57,7 @@ AddMovie = React.createClass({
 				    <div className="col s12">
           <div className="card light-blue">
             <div className="card-content white-text">
-              <span className="card-title">Please login or create an account to begin saving movies to your collection! <br/>Login is in the top right corner.</span>
+              <span className="card-title">Please login or create an account to begin saving movies to your collection! <br/>Login is in the top left corner.</span>
             </div>
  
           </div>

@@ -35,6 +35,9 @@ Movie = React.createClass({
 
 
     Meteor.call("reviewMovie", movieId, rating, function(error, result) {
+      if (result.notInRange) {
+        alert("Please enter a number between 1 and 10")
+      }
 
     })
     this.setState({
