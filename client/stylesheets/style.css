@@ -8,4 +8,42 @@
 
  #login-sign-in-link {
  	font-size: large !important
- }
+}
+
+.input-field label {
+    color: #000;
+}
+   /* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #000;
+}
+   /* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #4fc3f7;
+    box-shadow: 0 1px 0 0 #4fc3f7;
+}
+   /* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #4fc3f7;
+    box-shadow: 0 1px 0 0 #4fc3f7;
+}
+   /* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid #4fc3f7;
+    box-shadow: 0 1px 0 0 #4fc3f7;
+}
+   /* icon prefix focus color */
+.input-field .prefix.active {
+    color: #000;
+}
+
+.nav-wrapper {
+	background-color: #0D254C !important
+}
+
+.card-text {
+
+}
+
+
+        

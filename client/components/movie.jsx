@@ -16,7 +16,7 @@ Movie = React.createClass({
       var viewerArray = this.props.movie.viewers
       var viewer = Meteor.user()._id
       if (_.contains(viewerArray, viewer) == false) {
-        return <a onClick={this.reviewToggle} href="">Review</a>
+        return <a className="light-blue-text text-lighten-2" onClick={this.reviewToggle} href="">Review</a>
       }
     }
   },
@@ -54,12 +54,12 @@ Movie = React.createClass({
               <span className="card-title flow-text">{this.props.movie.title}</span>
             </div>
             <div className="card-content">
-              <p>Year Released: {this.props.movie.year}</p>
-              <p>IMDB Rating: {this.props.movie.imdbRating}</p>
-              <p>Community Rating: {this.props.movie.aggregateRating/this.props.movie.viewerCount}</p>
+              <p className="card-text">Year Released: {this.props.movie.year}</p>
+              <p className="card-text">IMDB Rating: {this.props.movie.imdbRating}</p>
+              <p className="card-text">Movie Keeper Rating: {this.props.movie.aggregateRating/this.props.movie.viewerCount}</p>
             </div>
             <div className="card-action">
-              <a href={FlowHelpers.pathFor('movie', { movieId: this.props.movie._id})}>More info</a>
+              <a className="light-blue-text text-lighten-2"href={FlowHelpers.pathFor('movie', { movieId: this.props.movie._id})}>More info</a>
               {this.reviewMovie()}
             </div>
           </div>
@@ -72,7 +72,7 @@ Movie = React.createClass({
             </div>
 
             <form onSubmit={this.handleReview}>
-             <div className="col s12">
+             <div className="col s12 input-field">
 
             <input
               id="rating_title"
@@ -82,7 +82,7 @@ Movie = React.createClass({
               placeholder="Rate movie (1-10)" />
             </div>      
             <div className="card-action">
-            <input type="submit" name="Add" className="btn waves-effect waves-light" placeholder="Add"/>
+            <input type="submit" name="Add" className="btn light-blue lighten-2"/>
 
             </div>
               </form>
