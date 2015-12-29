@@ -77,6 +77,21 @@ Meteor.methods({
 			})
 		}
 
-		}
+		},
+	reviewMovie(movieId, rating) {
+		var storedMovie = Movies.findOne({_id: movieId})
+
+		Movies.update(storedMovie._id, {
+			$addToSet: {
+				viewers: Meteor.userId()
+			},
+			$inc: {
+				viewerCount: 1,
+				aggregateRating: parseInt(rating)
+
+			}
+		})
+
+	}
 
 })

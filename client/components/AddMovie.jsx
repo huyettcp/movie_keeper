@@ -12,7 +12,6 @@ AddMovie = React.createClass({
 
 		var title = ReactDOM.findDOMNode(this.refs.movieInput).value.trim();
 		var rating = ReactDOM.findDOMNode(this.refs.ratingInput).value.trim();
-		console.log(rating)
 		Meteor.call("addMovie", title, rating, function(error, result) {
 			if (result.notAMovie) {
 				alert("Not a movie")
@@ -60,14 +59,6 @@ AddMovie = React.createClass({
  
           </div>
         </div>
-      // <div className="col s12">
-      //   <div className="card-panel teal">
-
-      //     <span className="white-text">Please login to begin saving movies to your collection! Login link is in the top right corner.
-      //     </span>
-      //   </div>
-      // </div>
-  
 
 
 
