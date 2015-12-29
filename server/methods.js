@@ -10,10 +10,15 @@ Meteor.methods({
 		var storedMovie = Movies.findOne({title: cleanTitle})
 
 		var poster = result.data.Poster
+		if (poster != "N/A") {
+			poster = result.data.Poster
+		} else {
+			poster = "https://c1.staticflickr.com/5/4022/4600661785_7aeed02aab_z.jpg"
+		}
 
 		var rating = parseInt(rating)
 
-		if (result.data.Response==="True" && storedMovie===undefined && poster != "N/A" && rating >= 0 && rating <= 10) {
+		if (result.data.Response==="True" && storedMovie===undefined && rating >= 0 && rating <= 10) {
 
 
 
@@ -29,7 +34,6 @@ Meteor.methods({
 		var language = result.data.Language
 		var country = result.data.Country
 		var awards = result.data.Awards
-		var poster = result.data.Poster
 		var metascore = result.data.Metascore
 		var imdbRating = result.data.imdbRating
 		var imdbVotes = result.data.imdbVotes
@@ -61,7 +65,7 @@ Meteor.methods({
 			viewers: [Meteor.userId()],
 			viewerCount: 1
 		});
-		} if (result.data.Response==="False" || poster === "N/A") {
+		} if (result.data.Response==="False") {
 			return {
 				notAMovie: true
 			}

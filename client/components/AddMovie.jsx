@@ -14,7 +14,7 @@ AddMovie = React.createClass({
 		var rating = ReactDOM.findDOMNode(this.refs.ratingInput).value.trim();
 		Meteor.call("addMovie", title, rating, function(error, result) {
 			if (result.notAMovie) {
-				alert("Not a movie")
+				alert("Movie not available on the OMDB API")
 			} if (result.notInRange) {
 				alert("Please enter a number between 1 and 10")
 			}
