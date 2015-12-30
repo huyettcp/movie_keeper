@@ -19,8 +19,9 @@ MoviePage = React.createClass({
 		return ([
 
 		<div className="row">
-				<img className="col s6 m6 l4"src={this.data.movie.poster}/>
+				<img className="col s6 m6 l4 movie-page-poster"src={this.data.movie.poster}/>
 			<div className="section col s6 m6 l8">
+			
 				<h3>{this.data.movie.title}</h3>
 				<div className="divider light-blue lighten-2"></div>
 				<p><b>Plot: </b>{this.data.movie.plot}</p>

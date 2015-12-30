@@ -52,8 +52,8 @@ Movie = React.createClass({
 		<div className="col s12 m6 l4">
     { this.state.reviewForm ? 
           <div className="card">
-            <div max-height="100" className="card-image">
-              <img height="445" src={this.props.movie.poster}/>
+            <div className="card-image">
+              <img height="350" src={this.props.movie.poster}/>
               <span className="card-title flow-text">{this.props.movie.title}</span>
             </div>
             <div className="card-content">

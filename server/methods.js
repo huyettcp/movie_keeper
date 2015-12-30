@@ -11,12 +11,9 @@ Meteor.methods({
 
 		var storedMovie = Movies.findOne({title: cleanTitle})
 
-		var poster = result.data.Poster
-		if (poster != "N/A") {
-			poster = result.data.Poster
-		} else {
-			poster = "https://c1.staticflickr.com/5/4022/4600661785_7aeed02aab_z.jpg"
-		}
+		var imdbId = result.data.imdbID
+
+		var	poster = "http://img.omdbapi.com/?apikey=34eb11d7&i="+imdbId+"&h=350"
 
 		var rating = parseInt(rating)
 
@@ -41,7 +38,7 @@ Meteor.methods({
 		var metascore = result.data.Metascore
 		var imdbRating = result.data.imdbRating
 		var imdbVotes = result.data.imdbVotes
-		var imdbId = result.data.imdbID
+
 
 		Movies.insert({
 			title: cleanTitle,
