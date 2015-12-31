@@ -1,12 +1,33 @@
 MovieList = React.createClass({
 	mixins: [ReactMeteorData],
 
-	getMeteorData() {
+	getInitialState() {
 		return {
-			movies: Movies.find({}, {sort: {createdAt: -1}}).fetch(),
+			myMovies: false
+		}
+	},
+
+	getMeteorData() {
+		let query = {};
+
+		if (this.state.myMovies) {
+			var myMovieQuery = {viewers: {$in: [Meteor.user()._id]}}
+		} else {
+			var myMovieQuery = {}
+		}
+		return {
+			movies: Movies.find(myMovieQuery, {sort: query}).fetch(),
 			currentUser: Meteor.user(),
 		}
 	},
+
+	toggleMyMovies() {
+		this.setState({
+      		myMovies: ! this.state.myMovies
+    	});
+
+	},
+
 
 	renderMovies() {
 		return this.data.movies.map((movie) => {
@@ -18,11 +39,34 @@ MovieList = React.createClass({
 		return <AddMovie />
 	},
 
+	renderSwitches() {
+		return  (
+
+   				<label>
+      				All Movies
+      			<input type="checkbox"
+      				checked={this.state.myMovies}
+      				readOnly={true}
+          			onClick={this.toggleMyMovies}/>
+      			<span className="lever"></span>
+      				My Movies
+    			</label>
+
+  			)
+	
+	},
+
 	render() {
 		return (
+           
+           <div className="row"> 
 
-			<div className="row">
 					{this.renderAdd()}
+					{ this.data.currentUser ? 
+					<div className="switch">
+						{this.renderSwitches()}
+					</div>
+					: ""}
 					{this.renderMovies()}
 
 			</div>

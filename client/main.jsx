@@ -11,6 +11,8 @@ MainLayout = React.createClass({
 
 				<div className="container">
 				<div className="row">
+
+
 				</div>
 					{this.props.content}
 				</div>
