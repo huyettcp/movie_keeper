@@ -16,7 +16,7 @@ MovieList = React.createClass({
 			var myMovieQuery = {}
 		}
 		return {
-			movies: Movies.find(myMovieQuery, {sort: query}).fetch(),
+			movies: Movies.find(myMovieQuery, {sort: {createdAt: -1}}).fetch(),
 			currentUser: Meteor.user(),
 		}
 	},

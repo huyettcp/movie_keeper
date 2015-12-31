@@ -4,8 +4,6 @@ Meteor.methods({
 			throw new Meteor.Error("not-authorized")
 		}
 
-		console.log(rating)
-
 		var result = HTTP.get("http://www.omdbapi.com/?t="+title+"&y=&plot=short&r=json")
 		var cleanTitle = result.data.Title
 
@@ -16,8 +14,6 @@ Meteor.methods({
 		var	poster = "http://img.omdbapi.com/?apikey=34eb11d7&i="+imdbId+"&h=350"
 
 		var rating = parseInt(rating)
-
-		console.log(rating)
 
 		if (result.data.Response==="True" && storedMovie===undefined && rating >= 0 && rating <= 10) {
 
