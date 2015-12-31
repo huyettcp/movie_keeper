@@ -37,7 +37,7 @@ AddMovie = React.createClass({
 						ref="movieInput"
 						placeholder="Enter movie title" />
 			</div>
-			<div className="input-field col s2">		
+			<div className="input-field col s4">		
 					<label className="active" htmlFor="rating_title">Rate Movie (1-10)</label>
   					<input
   						id="rating_title"
@@ -53,9 +53,10 @@ AddMovie = React.createClass({
 					<div className="col s12">	
 					<input id="add-movie-submit" type="submit" name="Add" className="btn light-blue lighten-2 waves-effect waves-light" placeholder="Add"/>
 					</div>
+
 				</form> :
 
-				    <div className="col s6">
+				    <div className="col s12">
           <div className="card light-blue">
             <div className="card-content white-text">
               <span className="card-title">Please login or create an account to begin saving movies to your collection! <br/>Login is in the top left corner.</span>

@@ -63,9 +63,12 @@ MovieList = React.createClass({
 
 					{this.renderAdd()}
 					{ this.data.currentUser ? 
-					<div className="switch">
+					<div className="row">
+					<div className="switch col s12">
 						{this.renderSwitches()}
 					</div>
+					</div>
+
 					: ""}
 					{this.renderMovies()}
 
